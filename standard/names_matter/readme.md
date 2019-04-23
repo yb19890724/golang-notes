@@ -33,14 +33,14 @@
     - 宁可在名字为runecount的函数内使用count，也不要在函数内使用runecount。
     - 与在语句中，首选OK  
     
-```gotemplate
+```go
 //较长的名称可能有助于长函数或具有许多局部变量的函数。 (但这通常意味着你应该重构。)
  v，ok：= m [k]
 ```
   
 
 demo
-```gotemplate
+```go
 
 // Bad
 func RuneCount(buffer []byte) int {
@@ -80,7 +80,7 @@ func RuneCount(b []byte) int {
 
 - 如果类型是描述性的，它们应该简短：
 
-```gotemplate
+```go
 func AfterFunc(d Duration, f func()) *Timer
 
 func Escape(w io.Writer, s []byte)
@@ -88,7 +88,7 @@ func Escape(w io.Writer, s []byte)
 ```
 - 如果类型更模糊，名称可能提供文档：
 
-```gotemplate
+```go
 func Unix(sec, nsec int64) Time
 
 func HasPrefix(s, prefix []byte) bool
@@ -99,7 +99,7 @@ func HasPrefix(s, prefix []byte) bool
 仅应出于文档目的命名导出函数的返回值。
 
 命名返回值的好例子：
-```gotemplate
+```go
 func Copy(dst Writer, src Reader) (written int64, err error)
 
 func ScanBytes(data []byte, atEOF bool) (advance int, token []byte, err error)
@@ -112,7 +112,7 @@ func ScanBytes(data []byte, atEOF bool) (advance int, token []byte, err error)
 
 按照惯例，它们是反映接收器类型的一个或两个字符，
 因为它们通常出现在几乎每一行上：
-```gotemplate
+```go
 
 func (b *Buffer) Read(p []byte) (n int, err error)
 
@@ -138,7 +138,7 @@ func (r Rectangle) Size() Point
 
 仅指定一个方法的接口通常只是附加了“er”的函数名称。
 
-```gotemplate
+```go
 type Reader interface {
     Read(p []byte) (n int, err error)
 }
@@ -146,7 +146,7 @@ type Reader interface {
 
 有时结果不是正确的英语，但我们仍然这样做：
 
-```gotemplate
+```go
 type Execer interface {
     Exec(query string, args []Value) (Result, error)
 }
@@ -154,7 +154,7 @@ type Execer interface {
 
 有时我们使用英语使其更好：
 
-```gotemplate
+```go
 type ByteReader interface {
     ReadByte() (c byte, err error)
 }
@@ -165,14 +165,14 @@ type ByteReader interface {
 #### 11、错误类型
 
 应为以下形式FooError：
-```gotemplate
+```go
 type ExitError struct {
     ...
 }
 ```
 
 错误值应为以下形式ErrFoo：
-```gotemplate
+```go
 var ErrFormat = errors.New("image: unknown format")
 
 ```
@@ -185,17 +185,17 @@ var ErrFormat = errors.New("image: unknown format")
 #### 13、导入路径
 
 包路径的最后一个组件应与包名相同。
-```gotemplate
+```go
 "compress/gzip" // package gzip
 ```
 
 避免在存储库和包路径中断断续续：
-```gotemplate
+```go
 "code.google.com/p/goauth2/oauth2" // bad; my fault
 ```
 
 对于库，它通常用于将包代码放在repo根目录中：
-```gotemplate
+```go
 "github.com/golang/oauth2" // package oauth2
 ```
 还要避免使用大写字母（并非所有文件系统都区分大小写）。

@@ -4,7 +4,7 @@
 
 
 * standard  开发规范
-    -  [命名规范](https://github.com/yb19890724/golang-notes/standard/names_matter)
+    -  [命名规范](https://github.com/yb19890724/golang-notes/tree/master/standard/names_matter)
 
 
 
