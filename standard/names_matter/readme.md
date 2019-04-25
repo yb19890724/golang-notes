@@ -106,7 +106,7 @@ func ScanBytes(data []byte, atEOF bool) (advance int, token []byte, err error)
 
 ```
 
-#### 8、
+#### 8、接受者
 
 接收者是一种特殊的论点。
 
